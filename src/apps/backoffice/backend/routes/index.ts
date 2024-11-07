@@ -1,12 +1,11 @@
 import { Router } from 'express';
-import glob from 'glob';
+import { registerStatusRoutes } from './status.route';
+import { registerCoursesRoutes } from './courses.route';
 
-export function registerRoutes(router: Router) {
-  const routes = glob.sync(__dirname + '/**/*.route.*');
-  routes.map(route => register(route, router));
-}
+export function registerRoutes(): Router {
+  const router = Router();
+  router.use(registerCoursesRoutes());
+  router.use(registerStatusRoutes());
 
-function register(routePath: string, app: Router) {
-  const route = require(routePath);
-  route.register(app);
+  return router;
 }

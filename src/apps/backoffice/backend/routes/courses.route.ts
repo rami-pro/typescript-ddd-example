@@ -1,8 +1,9 @@
-import { Express } from 'express';
+import { Router } from 'express';
 import container from '../dependency-injection';
 import { CoursesPostController } from '../controllers/CoursesPostController';
 
-export const register = (app: Express) => {
+export const registerCoursesRoutes = (): Router => {
+  const router = Router();
   const coursesPostController: CoursesPostController = container.get(
     'Apps.Backoffice.Backend.controllers.CoursesPostController'
   );
@@ -10,6 +11,8 @@ export const register = (app: Express) => {
     'Apps.Backoffice.Backend.controllers.CoursesGetController'
   );
 
-  app.post('/courses', coursesPostController.run.bind(coursesPostController));
-  app.get('/courses', coursesGetController.run.bind(coursesGetController));
+  router.post('/courses', coursesPostController.run);
+  router.post('/courses', coursesGetController.run);
+
+  return router;
 };

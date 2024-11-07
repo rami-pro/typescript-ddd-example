@@ -1,8 +1,12 @@
-import { Express } from 'express';
+import { Router } from 'express';
 import container from '../dependency-injection';
 import StatusController from '../controllers/StatusGetController';
 
-export const register = (app: Express) => {
+export const registerStatusRoutes = (): Router => {
+  const router = Router();
+
   const controller: StatusController = container.get('Apps.Backoffice.Backend.controllers.StatusGetController');
-  app.get('/status', controller.run.bind(controller));
+  router.get('/status', controller.run);
+
+  return router;
 };

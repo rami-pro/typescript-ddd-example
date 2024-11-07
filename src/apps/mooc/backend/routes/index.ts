@@ -1,16 +1,17 @@
 import { Router, Request, Response } from 'express';
-import glob from 'glob';
 import { ValidationError, validationResult } from 'express-validator';
-import httpStatus from 'http-status';
+import { StatusCodes as httpStatus } from 'http-status-codes';
+import { registerStatusRoutes } from './status.route';
+import { registerCoursesCounterRoutes } from './courses-counter.route';
+import { registerCoursesRoutes } from './courses.route';
 
-export function registerRoutes(router: Router) {
-  const routes = glob.sync(__dirname + '/**/*.route.*');
-  routes.map(route => register(route, router));
-}
+export function registerRoutes(): Router {
+  const router = Router();
+  router.use(registerStatusRoutes());
+  router.use(registerCoursesCounterRoutes());
+  router.use(registerCoursesRoutes());
 
-function register(routePath: string, router: Router) {
-  const route = require(routePath);
-  route.register(router);
+  return router;
 }
 
 export function validateReqSchema(req: Request, res: Response, next: Function) {

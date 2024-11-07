@@ -1,7 +1,7 @@
 import { Client as ElasticClient } from '@elastic/elasticsearch';
 import { ResponseError } from '@elastic/elasticsearch/lib/errors';
 import bodybuilder, { Bodybuilder } from 'bodybuilder';
-import httpStatus from 'http-status';
+import { StatusCodes as httpStatus } from 'http-status-codes';
 import { AggregateRoot } from '../../../domain/AggregateRoot';
 import { Criteria } from '../../../domain/criteria/Criteria';
 import ElasticConfig from './ElasticConfig';

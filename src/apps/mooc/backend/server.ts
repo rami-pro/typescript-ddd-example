@@ -1,11 +1,9 @@
-import bodyParser from 'body-parser';
 import compress from 'compression';
 import errorHandler from 'errorhandler';
-import express, { Request, Response } from 'express';
-import Router from 'express-promise-router';
+import express, { Request, Response, Router } from 'express';
 import helmet from 'helmet';
 import * as http from 'http';
-import httpStatus from 'http-status';
+import { StatusCodes as httpStatus } from 'http-status-codes';
 import { registerRoutes } from './routes';
 
 export class Server {
@@ -16,18 +14,15 @@ export class Server {
   constructor(port: string) {
     this.port = port;
     this.express = express();
-    this.express.use(bodyParser.json());
-    this.express.use(bodyParser.urlencoded({ extended: true }));
-    this.express.use(helmet.xssFilter());
-    this.express.use(helmet.noSniff());
-    this.express.use(helmet.hidePoweredBy());
+    this.express.use(express.json());
+    this.express.use(express.urlencoded({ extended: true }));
+    this.express.use(helmet());
     this.express.use(helmet.frameguard({ action: 'deny' }));
     this.express.use(compress());
     const router = Router();
     router.use(errorHandler());
+    router.use(registerRoutes());
     this.express.use(router);
-
-    registerRoutes(router);
 
     router.use((err: Error, req: Request, res: Response, next: Function) => {
       console.log(err);

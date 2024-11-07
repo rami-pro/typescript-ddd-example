@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import httpStatus from 'http-status';
+import { StatusCodes as httpStatus } from 'http-status-codes';
 import { CreateCourseCommand } from '../../../../Contexts/Mooc/Courses/domain/CreateCourseCommand';
 import { CommandBus } from '../../../../Contexts/Shared/domain/CommandBus';
 import { Controller } from './Controller';
