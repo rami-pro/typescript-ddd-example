@@ -32,6 +32,6 @@ export class TypeOrmEnvironmentArranger extends EnvironmentArranger {
   }
 
   public async close(): Promise<void> {
-    return (await this.client()).close();
+    return (await this.client()).destroy();
   }
 }
