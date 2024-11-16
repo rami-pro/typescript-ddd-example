@@ -11,7 +11,7 @@
     "npm": ">=6.7.0"
   },
   "scripts": {
-    "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mooc/backend/start.ts",
+    "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mooc/start.ts",
     "dev:backoffice:frontend": "cd ./src/apps/backoffice/frontend && npm start",
     "dev:backoffice:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/apps/backoffice/backend/start.ts",
     "lint": "prettier --write src/**/*.ts{,x}",

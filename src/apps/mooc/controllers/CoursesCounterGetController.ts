@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { StatusCodes as httpStatus } from 'http-status-codes';
-import { FindCoursesCounterQuery } from '../../../../Contexts/Mooc/CoursesCounter/application/Find/FindCoursesCounterQuery';
-import { FindCoursesCounterResponse } from '../../../../Contexts/Mooc/CoursesCounter/application/Find/FindCoursesCounterResponse';
-import { CoursesCounterNotExist } from '../../../../Contexts/Mooc/CoursesCounter/domain/CoursesCounterNotExist';
-import { QueryBus } from '../../../../Contexts/Shared/domain/QueryBus';
+import { FindCoursesCounterQuery } from '../../../Contexts/Mooc/CoursesCounter/application/Find/FindCoursesCounterQuery';
+import { FindCoursesCounterResponse } from '../../../Contexts/Mooc/CoursesCounter/application/Find/FindCoursesCounterResponse';
+import { CoursesCounterNotExist } from '../../../Contexts/Mooc/CoursesCounter/domain/CoursesCounterNotExist';
+import { QueryBus } from '../../../Contexts/Shared/domain/QueryBus';
 import { Controller } from './Controller';
 
 export class CoursesCounterGetController implements Controller {
