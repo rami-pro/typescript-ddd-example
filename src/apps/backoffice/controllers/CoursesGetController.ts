@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { StatusCodes as httpStatus } from 'http-status-codes';
-import { BackofficeCoursesResponse } from '../../../../Contexts/Backoffice/Courses/application/BackofficeCoursesResponse';
-import { QueryBus } from '../../../../Contexts/Shared/domain/QueryBus';
+import { BackofficeCoursesResponse } from '../../../Contexts/Backoffice/Courses/application/BackofficeCoursesResponse';
+import { QueryBus } from '../../../Contexts/Shared/domain/QueryBus';
 import { Controller } from './Controller';
-import { SearchAllCoursesQuery } from '../../../../Contexts/Backoffice/Courses/application/SearchAll/SearchAllCoursesQuery';
+import { SearchAllCoursesQuery } from '../../../Contexts/Backoffice/Courses/application/SearchAll/SearchAllCoursesQuery';
 
 export class CoursesGetController implements Controller {
   constructor(private readonly queryBus: QueryBus) {}

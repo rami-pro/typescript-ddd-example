@@ -5,7 +5,7 @@ import { Router } from 'express';
 import helmet from 'helmet';
 import * as http from 'http';
 import { StatusCodes as httpStatus } from 'http-status-codes';
-import Logger from '../../../Contexts/Shared/domain/Logger';
+import Logger from '../../Contexts/Shared/domain/Logger';
 import container from './dependency-injection';
 import { registerRoutes } from './routes';
 import cors from 'cors';
