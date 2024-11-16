@@ -7,6 +7,11 @@ services:
     class: ../../../../../Contexts/Mooc/Courses/application/CourseCreator
     arguments: ['@Mooc.Courses.domain.CourseRepository', '@Mooc.Shared.domain.EventBus']
 
+  Mooc.courses.Tnaketen:
+    class: ../../../../../Contexts/Mooc/Courses/application/Create/Tnaketen
+    tags:
+      - { name: 'domainEventSubscriber' }
+
   Mooc.courses.CreateCourseCommandHandler:
     class: ../../../../../Contexts/Mooc/Courses/application/Create/CreateCourseCommandHandler
     arguments: ['@Mooc.Courses.application.CourseCreator']

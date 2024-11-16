@@ -37,6 +37,11 @@ services:
     tags:
       - { name: 'domainEventSubscriber' }
 
+  Backoffice.courses.Tnaket:
+    class: ../../../../../Contexts/Backoffice/Courses/application/Create/Tnaket
+    tags:
+      - { name: 'domainEventSubscriber' }
+
   Backoffice.courses.application.CoursesByCriteriaSearcher:
     class: ../../../../../Contexts/Backoffice/Courses/application/SearchByCriteria/CoursesByCriteriaSearcher
     arguments: ['@Backoffice.Courses.domain.BackofficeCourseRepository']

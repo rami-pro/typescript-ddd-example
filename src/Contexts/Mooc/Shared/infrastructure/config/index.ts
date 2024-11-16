@@ -53,19 +53,19 @@ const moocConfig = convict({
         doc: 'RabbitMQ username',
         format: String,
         env: 'RABBITMQ_USERNAME',
-        default: 'guest'
+        default: 'gttnxjmn'
       },
       password: {
         doc: 'RabbitMQ password',
         format: String,
         env: 'RABBITMQ_PASSWORD',
-        default: 'guest'
+        default: 'o9tNQv58uPJ_1XV-ubTL4StBHwcKdNIp'
       },
       vhost: {
         doc: 'RabbitMQ virtual host',
         format: String,
         env: 'RABBITMQ_VHOST',
-        default: '/'
+        default: 'gttnxjmn'
       },
       connection: {
         secure: {
@@ -78,7 +78,7 @@ const moocConfig = convict({
           doc: 'RabbitMQ hostname',
           format: String,
           env: 'RABBITMQ_HOSTNAME',
-          default: 'localhost'
+          default: 'rat.rmq2.cloudamqp.com'
         },
         port: {
           doc: 'RabbitMQ amqp port',

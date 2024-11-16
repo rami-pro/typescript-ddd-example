@@ -12,6 +12,11 @@ services:
     arguments: ['@Mooc.CoursesCounter.CoursesCounterIncrementer']
     tags:
       - { name: 'domainEventSubscriber' }
+  
+  Mooc.courses.Tnaketenen:
+    class: ../../../../../Contexts/Mooc/Courses/application/SearchAll/Tnaketenen
+    tags:
+      - { name: 'domainEventSubscriber' }
 
   Mooc.CoursesCounter.CoursesCounterFinder:
     class: ../../../../../Contexts/Mooc/CoursesCounter/application/Find/CoursesCounterFinder

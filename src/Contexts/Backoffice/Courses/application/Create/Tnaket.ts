@@ -1,19 +1,13 @@
 import { CourseCreatedDomainEvent } from '../../../../Mooc/Courses/domain/CourseCreatedDomainEvent';
 import { DomainEventClass } from '../../../../Shared/domain/DomainEvent';
 import { DomainEventSubscriber } from '../../../../Shared/domain/DomainEventSubscriber';
-import { BackofficeCourseCreator } from './BackofficeCourseCreator';
 
-export class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscriber<CourseCreatedDomainEvent> {
-  constructor(private creator: BackofficeCourseCreator) {}
-
+export class Tnaket implements DomainEventSubscriber<CourseCreatedDomainEvent> {
   subscribedTo(): DomainEventClass[] {
     return [CourseCreatedDomainEvent];
   }
 
   async on(domainEvent: CourseCreatedDomainEvent): Promise<void> {
-    const { aggregateId, duration, name } = domainEvent;
-    console.log('tnaket.com');
-
-    return this.creator.run(aggregateId, duration, name);
+    console.log('mnnayek nta btahki 3la tiqou');
   }
 }
