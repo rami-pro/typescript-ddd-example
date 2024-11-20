@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { TypeOrmConfig } from './TypeOrmConfig';
+import path from "path";
 
 export class TypeOrmClientFactory {
   private static clients: Map<string, DataSource> = new Map();
@@ -20,7 +21,17 @@ export class TypeOrmClientFactory {
       username: config.username,
       password: config.password,
       database: config.database,
-      entities: [__dirname + '/../../../../**/**/infrastructure/persistence/typeorm/*{.js,.ts}'],
+      entities: [path.join(
+        __dirname,
+        '..',
+        '..',
+        '..',
+        '**',
+        'infrastructure',
+        'persistence',
+        'typeorm',
+        '*{.js,.ts}'
+      )],
       synchronize: true,
       logging: true
     });

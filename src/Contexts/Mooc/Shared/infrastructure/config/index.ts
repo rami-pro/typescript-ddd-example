@@ -1,4 +1,5 @@
 import convict from 'convict';
+import path from "path";
 
 const moocConfig = convict({
   env: {
@@ -53,19 +54,19 @@ const moocConfig = convict({
         doc: 'RabbitMQ username',
         format: String,
         env: 'RABBITMQ_USERNAME',
-        default: 'gttnxjmn'
+        default: 'guest'
       },
       password: {
         doc: 'RabbitMQ password',
         format: String,
         env: 'RABBITMQ_PASSWORD',
-        default: 'o9tNQv58uPJ_1XV-ubTL4StBHwcKdNIp'
+        default: 'guest'
       },
       vhost: {
         doc: 'RabbitMQ virtual host',
         format: String,
         env: 'RABBITMQ_VHOST',
-        default: 'gttnxjmn'
+        default: '/'
       },
       connection: {
         secure: {
@@ -78,7 +79,7 @@ const moocConfig = convict({
           doc: 'RabbitMQ hostname',
           format: String,
           env: 'RABBITMQ_HOSTNAME',
-          default: 'rat.rmq2.cloudamqp.com'
+          default: 'localhost'
         },
         port: {
           doc: 'RabbitMQ amqp port',
@@ -111,6 +112,6 @@ const moocConfig = convict({
   }
 });
 
-moocConfig.loadFile([__dirname + '/default.json', __dirname + '/' + moocConfig.get('env') + '.json']);
+moocConfig.loadFile([path.join(__dirname, 'default.json') , path.join(__dirname, `${moocConfig.get('env').trim()}.json`)]);
 
 export default moocConfig;
