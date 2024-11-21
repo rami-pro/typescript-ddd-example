@@ -24,8 +24,8 @@ services:
       - { name: 'queryHandler' }
 
   Backoffice.Courses.domain.BackofficeCourseRepository:
-    class: ../../../../Contexts/Backoffice/Courses/infrastructure/persistence/ElasticBackofficeCourseRepository
-    arguments: ['@Backoffice.Shared.ElasticConnectionManager', '@Backoffice.Shared.ElasticConfig']
+    class: ../../../../Contexts/Backoffice/Courses/infrastructure/persistence/MongoBackofficeCourseRepository
+    arguments: ['@Backoffice.Shared.ConnectionManager']
 
   Backoffice.Courses.application.BackofficeCourseCreator:
     class: ../../../../Contexts/Backoffice/Courses/application/Create/BackofficeCourseCreator
@@ -37,8 +37,8 @@ services:
     tags:
       - { name: 'domainEventSubscriber' }
 
-  Backoffice.courses.Tnaket:
-    class: ../../../../Contexts/Backoffice/Courses/application/Create/Tnaket
+  Backoffice.courses.Boom:
+    class: ../../../../Contexts/Backoffice/Courses/application/Create/Boom
     tags:
       - { name: 'domainEventSubscriber' }
 

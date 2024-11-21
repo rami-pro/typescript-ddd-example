@@ -1,24 +1,24 @@
 services:
-  Mooc.CoursesCounter.CoursesCounterRepository:
+  Mechoui.CoursesCounter.CoursesCounterRepository:
     class: ../../../../Contexts/Mooc/CoursesCounter/infrastructure/persistence/mongo/MongoCoursesCounterRepository
-    arguments: ['@Mooc.Shared.ConnectionManager']
+    arguments: ['@Mechoui.Shared.ConnectionManager']
 
-  Mooc.CoursesCounter.CoursesCounterIncrementer:
+  Mechoui.CoursesCounter.CoursesCounterIncrementer:
     class: ../../../../Contexts/Mooc/CoursesCounter/application/Increment/CoursesCounterIncrementer
-    arguments: ['@Mooc.CoursesCounter.CoursesCounterRepository', '@Mooc.Shared.domain.EventBus']
+    arguments: ['@Mechoui.CoursesCounter.CoursesCounterRepository', '@Mechoui.Shared.domain.EventBus']
 
-  Mooc.CoursesCounter.IncrementCoursesCounterOnCourseCreated:
+  Mechoui.CoursesCounter.IncrementCoursesCounterOnCourseCreated:
     class: ../../../../Contexts/mechoui/Courses/application/Create/CreateBackofficeCourseOnCourseCreated
-    arguments: ['@Mooc.CoursesCounter.CoursesCounterIncrementer']
+    arguments: ['@Mechoui.CoursesCounter.CoursesCounterIncrementer']
     tags:
       - { name: 'domainEventSubscriber' }
 
-  Mooc.CoursesCounter.CoursesCounterFinder:
+  Mechoui.CoursesCounter.CoursesCounterFinder:
     class: ../../../../Contexts/Mooc/CoursesCounter/application/Find/CoursesCounterFinder
-    arguments: ['@Mooc.CoursesCounter.CoursesCounterRepository']
+    arguments: ['@Mechoui.CoursesCounter.CoursesCounterRepository']
 
-  Mooc.CoursesCounter.FindCoursesCounterQueryHandler:
+  Mechoui.CoursesCounter.FindCoursesCounterQueryHandler:
     class: ../../../../Contexts/Mooc/CoursesCounter/application/Find/FindCoursesCounterQueryHandler
-    arguments: ['@Mooc.CoursesCounter.CoursesCounterFinder']
+    arguments: ['@Mechoui.CoursesCounter.CoursesCounterFinder']
     tags:
       - { name: 'queryHandler' }

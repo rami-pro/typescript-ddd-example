@@ -21,14 +21,14 @@ export class MoocBackendApp {
   }
 
   async stop() {
-    const rabbitMQConnection = container.get<RabbitMqConnection>('Mooc.Shared.RabbitMQConnection');
+    const rabbitMQConnection = container.get<RabbitMqConnection>('Mechoui.Shared.RabbitMQConnection');
     await rabbitMQConnection.close();
     return this.server?.stop();
   }
 
   private async configureEventBus() {
-    const eventBus = container.get<EventBus>('Mooc.Shared.domain.EventBus');
-    const rabbitMQConnection = container.get<RabbitMqConnection>('Mooc.Shared.RabbitMQConnection');
+    const eventBus = container.get<EventBus>('Mechoui.Shared.domain.EventBus');
+    const rabbitMQConnection = container.get<RabbitMqConnection>('Mechoui.Shared.RabbitMQConnection');
     await rabbitMQConnection.connect();
 
     eventBus.addSubscribers(DomainEventSubscribers.from(container));

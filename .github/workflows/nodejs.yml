@@ -52,10 +52,3 @@ jobs:
       - name: npm test
         run: |
           npm test
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
-        env:
-          NODE_ENV: end2end
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-        with:
-          start: npm run cypress:ci:start

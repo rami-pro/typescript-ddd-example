@@ -12,7 +12,7 @@ export const registerCoursesRoutes = (): Router => {
     body('duration').exists().isString()
   ];
 
-  const coursePutController: CoursePutController = container.get('Apps.mooc.controllers.CoursePutController');
+  const coursePutController: CoursePutController = container.get('Apps.mechoui.controllers.CoursePutController');
   router.put('/courses/:id', reqSchema, validateReqSchema, (req: Request, res: Response) =>
     coursePutController.run(req, res)
   );

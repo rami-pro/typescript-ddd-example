@@ -6,11 +6,11 @@ import container from '../dependency-injection';
 
 export class ConfigureRabbitMQCommand {
   static async run() {
-    const connection = container.get<RabbitMqConnection>('Mooc.Shared.RabbitMQConnection');
-    const { name: exchange } = container.get<RabbitMQConfig>('Mooc.Shared.RabbitMQConfig').exchangeSettings;
+    const connection = container.get<RabbitMqConnection>('Mechoui.Shared.RabbitMQConnection');
+    const { name: exchange } = container.get<RabbitMQConfig>('Mechoui.Shared.RabbitMQConfig').exchangeSettings;
     await connection.connect();
 
-    const configurer = container.get<RabbitMQConfigurer>('Mooc.Shared.RabbitMQConfigurer');
+    const configurer = container.get<RabbitMQConfigurer>('Mechoui.Shared.RabbitMQConfigurer');
     const subscribers = DomainEventSubscribers.from(container).items;
 
     await configurer.configure({ exchange, subscribers });

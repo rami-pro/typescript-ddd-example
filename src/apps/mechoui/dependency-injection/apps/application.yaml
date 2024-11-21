@@ -1,12 +1,12 @@
 services:
-  Apps.mooc.controllers.StatusGetController:
+  Apps.mechoui.controllers.StatusGetController:
     class: ../../controllers/StatusGetController
     arguments: []
 
-  Apps.mooc.controllers.CoursePutController:
+  Apps.mechoui.controllers.CoursePutController:
     class: ../../controllers/CoursePutController
-    arguments: ['@Mooc.Shared.domain.CommandBus']
+    arguments: ['@Mechoui.Shared.domain.CommandBus']
 
-  Apps.mooc.controllers.CoursesCounterGetController:
+  Apps.mechoui.controllers.CoursesCounterGetController:
     class: ../../controllers/CoursesCounterGetController
-    arguments: ['@Mooc.Shared.domain.QueryBus']
+    arguments: ['@Mechoui.Shared.domain.QueryBus']
