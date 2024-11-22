@@ -14,10 +14,12 @@
     "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mooc/start.ts",
     "dev:mechoui:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mechoui/start.ts",
     "dev:mechoui2:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mechoui2/start.ts",
+    "dev:mechoui3:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mechoui3/start.ts",
     "dev:backoffice:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/apps/backoffice/start.ts",
     "windows:dev:mooc:backend": "set NODE_ENV=dev & ts-node-dev --ignore-watch node_modules  ./src/apps/mooc/start.ts",
     "windows:dev:mechoui:backend": "set NODE_ENV=dev & ts-node-dev --ignore-watch node_modules  ./src/apps/mechoui/start.ts",
     "windows:dev:mechoui2:backend": "set NODE_ENV=dev & ts-node-dev --ignore-watch node_modules  ./src/apps/mechoui/start.ts",
+    "windows:dev:mechoui3:backend": "set NODE_ENV=dev & ts-node-dev --ignore-watch node_modules  ./src/apps/mechoui/start.ts",
     "windows:dev:backoffice:backend": "set NODE_ENV=dev & ts-node-dev --ignore-watch node_modules ./src/apps/backoffice/start.ts",
     "lint": "prettier --write src/**/*.ts{,x}",
     "test": "npm run test:unit && npm run test:features",
@@ -38,7 +40,8 @@
     "command:mooc:rabbitmq": "NODE_ENV=production ts-node src/apps/mooc/command/runConfigureRabbitMQCommand",
     "command:backoffice:rabbitmq": "NODE_ENV=production ts-node src/apps/backoffice/command/runConfigureRabbitMQCommand",
     "command:mechoui:rabbitmq": "NODE_ENV=dev ts-node src/apps/mechoui/command/runConfigureRabbitMQCommand",
-    "command:mechoui2:rabbitmq": "NODE_ENV=dev ts-node src/apps/mechoui2/command/runConfigureRabbitMQCommand"
+    "command:mechoui2:rabbitmq": "NODE_ENV=dev ts-node src/apps/mechoui2/command/runConfigureRabbitMQCommand",
+    "command:mechoui3:rabbitmq": "NODE_ENV=dev ts-node src/apps/mechoui3/command/runConfigureRabbitMQCommand"
   },
   "dependencies": {
     "amqplib": "^0.8.0",
