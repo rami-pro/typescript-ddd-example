@@ -7,8 +7,8 @@ services:
     class: ../../../../Contexts/Mooc/Courses/application/CourseCreator
     arguments: ['@Mooc.Courses.domain.CourseRepository', '@Mooc.Shared.domain.EventBus']
 
-  Mooc.courses.Tnaketen:
-    class: ../../../../Contexts/Mooc/Courses/application/Create/Tnaketen
+  Mooc.courses.Example:
+    class: ../../../../Contexts/Mooc/Courses/application/Create/Example
     tags:
       - { name: 'domainEventSubscriber' }
 
