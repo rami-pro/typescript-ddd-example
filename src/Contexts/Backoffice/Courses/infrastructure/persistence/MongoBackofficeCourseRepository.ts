@@ -3,7 +3,7 @@ import { MongoRepository } from '../../../../Shared/infrastructure/persistence/m
 import { BackofficeCourse } from '../../domain/BackofficeCourse';
 import { BackofficeCourseRepository } from '../../domain/BackofficeCourseRepository';
 
-interface CourseDocument {
+interface CourseDocument extends Document {
   _id: string;
   name: string;
   duration: string;
